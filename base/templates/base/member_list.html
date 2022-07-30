@@ -29,7 +29,7 @@
             <td>
                 <a href="{% url 'member-update' member.id %}">
                     <p class="element_title">{{member.first_name}} {{member.last_name}}
-                    {% if member.role == 'ADMIN' %}
+                    {% if member.role == 'Admin' %}
                     ({{member.role}})
                     {% endif %}
                     </p>
