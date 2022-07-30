@@ -1,0 +1,109 @@
+@media screen and (min-width: 960px){
+    body{
+        width: 40%;
+    }
+}
+
+body{
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: grey;
+    padding: 5px 15px 5px 15px;
+}
+td{
+    border-top: 1px solid lightgrey;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+table{
+    border-spacing: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+p{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+a, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+.list_element:hover{
+    background-color: #f0f5ff;
+    transition: background-color 80ms ease-in;
+    border-radius: 20px;
+}
+.add_icon{
+    float: right;
+    padding: 10px;
+}
+.back_icon{
+    display: flex;
+    margin-right: auto;
+    padding: 10px;
+}
+.heading{
+    font-size: 2em;
+    margin-bottom: 0px;
+    margin-top: 0.2em;
+    color: black;
+    opacity: 80%;
+    width: fit-content;
+}
+.subheading{
+    font-size: 1em;
+    margin-bottom: 1em;
+    color: grey;
+}
+.button {
+    color: white;
+    background: #4285F4;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 9pt;
+    outline: none;
+    height: 28px;
+    width: 80px;
+}
+.button:hover{
+    background-color: white;
+    color: grey;
+    border: 1px lightgrey solid;
+    transition: background-color 80ms ease-in;
+}
+.button_container{
+    margin-bottom: 20px;
+    position: fixed;
+    bottom: 0;
+}
+input, label{
+    margin-bottom: 10px;
+}
+.search_bar{
+    width: 72%;
+}
+.profile_icon{
+    display: flex;  
+    margin-left: auto;
+    margin-right: auto;
+}
+.save_button{
+    margin-right: 20px;
+}
+.delete_button{
+    color: red;
+    background: white;
+    height: 28px;
+    width: 80px;
+}
+.element_title{
+    color: black;
+    opacity: 80%;
+}
+.element_subtitle{
+    opacity: 60%;
+    font-size: 12px;
+}

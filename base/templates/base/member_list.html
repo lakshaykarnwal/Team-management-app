@@ -1,0 +1,49 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<a class="add_icon" href="{% url 'member-create' %}">
+    <svg fill="#4285F4" width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/></svg>
+</a>
+
+<h1 class="heading">Team Members</h1>
+<p class="subheading">You have {{members.count}} team members</p>
+
+<form method="GET">
+    <input class="search_bar" type='text' name='search-area' value="{{search_input}}"/>
+    <input class="button" type='submit' value='Search'/>
+</form>
+
+
+<div class="table_container">
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for member in members %}
+        <tr class="list_element">
+            <td>
+                <svg class="profile_icon" fill="grey" opacity="60%" width="25" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"/></svg>
+            </td>
+            <td>
+                <a href="{% url 'member-update' member.id %}">
+                    <p class="element_title">{{member.first_name}} {{member.last_name}}
+                    {% if member.role == 'ADMIN' %}
+                    ({{member.role}})
+                    {% endif %}
+                    </p>
+                    
+                    <p class="element_subtitle">{{member.phone}}</p> 
+                    <p class= "element_subtitle">{{member.email}}</p>
+                </a>
+            </td>
+            {#<td><a href="{% url 'member' member.id %}">View</a></td>#}
+        </tr>
+        {% empty %}
+            <h3>No members in list</h3>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,43 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<a class="back_icon" href="{% url 'members' %}">
+    <svg fill="#4285F4" width="15" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z"/></svg>
+</a>
+
+
+{% if request.resolver_match.url_name == 'member-create' %}
+<h3 class="heading">Add a team member</h3>
+<p class="subheading">Set email, location and role</p>
+{% else %}
+<h3 class="heading">Edit team member</h3>
+<p class="subheading">Edit email, location and role</p>
+{% endif %}
+
+{% if request.resolver_match.url_name == 'member-update' %}
+
+<div class="form_container">
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="button_container">
+            <a class="button delete_button" href="{% url 'member-delete' member.id %}">Delete</a>
+            <input class="button save_button" type="submit" value="Save">
+        </div>
+    </form>
+</div>
+
+
+{% else %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="button_container">
+        <input class="button save_button" type="submit" value="Save">
+    </div>
+</form>
+
+{% endif %}
+
+{% endblock content %}
